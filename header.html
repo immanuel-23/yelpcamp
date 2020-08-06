@@ -1,0 +1,49 @@
+<html>
+	
+	<head>
+		<title> Tourist Point</title>
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+	<link rel="stylesheet"
+	type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/components/accordion.min.css">
+	</head>
+	<link rel="stylesheet" href="/stylesheets/main.css">
+	<body>
+		<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand" href="/">Tourist Point </a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+      </li>
+     </ul>
+   
+		<ul class="nav navbar-nav navbar-right">
+			<% if(!currentUser){ %>
+			<li><a href="/login">Login</a></li>
+			<li><a href="/register">Sign up</a></li>
+			<%}else{%>
+			<li><a href="#">Signed In As <%=currentUser.username%></a></li>
+			<li><a href="/logout">Logout</a></li>
+			<% } %>
+		</ul>
+	 </div>
+	
+</nav>
+		<br/>
+		<div class="container">
+			<% if(error && error.length>0){%>
+			<div class="alert alert-danger" role="alert">
+  			<%= error %>
+			</div>
+			<% }%>
+			<% if(success && success.length>0){%>
+		<div class="alert alert-success" role="alert">
+  			<%= success %>
+		
+		</div>
+			<% }%>
+		</div>
